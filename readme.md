@@ -1,13 +1,13 @@
 ## CST 126 - CST126_4
 
-**Class ID:** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [replace with your id]
+**Class ID:** Rowan;
 
 **Unresolved Issues:**
-+ [Replace this with any known issues.  If it works groovy say that]
++ N/A
 
 **Notes:**
-
-
++ Lab doc was a little bit ambiguous about cString vs String for this lab (said use a char limit & use string compare operators), using cStrings in this version 
++ Instead of using getline, used 2 cin statements and concatenation to create searchable term
 
 ##  Lab 4 - Pulling it all together
 
