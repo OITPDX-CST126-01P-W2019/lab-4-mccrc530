@@ -7,7 +7,7 @@
 
 **Notes:**
 + Using c++ strings in this version 
-+ Instead of using getline, used 2 cin statements and concatenation to create searchable term
++ To solve getline and cin conflict, used a cin.get() to snag the newline char produced by cin
 
 ##  Lab 4 - Pulling it all together
 
