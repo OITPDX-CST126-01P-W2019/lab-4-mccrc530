@@ -6,7 +6,7 @@
 + N/A
 
 **Notes:**
-+ Lab doc was a little bit ambiguous about cString vs String for this lab (said use a char limit & use string compare operators), using cStrings in this version 
++ Using c++ strings in this version 
 + Instead of using getline, used 2 cin statements and concatenation to create searchable term
 
 ##  Lab 4 - Pulling it all together

@@ -5,27 +5,24 @@
 
 session::session()
 {
-	title[0] = '/0';
-	speaker[0] = '/0';
+	title = "";
+	speaker = "";
 	length = 0;
+	next = nullptr;
 }
-session::session(char const * inputTitle, char const * inputSpeaker, int const inputLength)
+session::session(std::string const inputTitle, std::string const inputSpeaker, int const inputLength)
 {
-	for (int i{}; i != 35; i++)
-	{
-		title[i] = inputTitle[i];
-		speaker[i] = inputSpeaker[i];
-	}
-
+	title = inputTitle;
+	speaker = inputSpeaker;
 	length = inputLength;
 	next = nullptr;
 }
 void session::printSession() const
 {
-	std::cout << std::setw(35) << title << std::setw(35) << speaker << " " << length << std::endl;
+	std::cout << std::setw(35) << title << std::setw(20) << speaker << " " << length << std::endl;
 }
 
-char * const session::getSpeaker()
+std::string const session::getSpeaker() const
 {
 	return speaker;
 }
@@ -42,7 +39,7 @@ List::List()
 
 List::~List()
 {
-	std::cout << "~List" << std::endl;
+	std::cout << std::endl << "~List" << std::endl;
 
 	session * nextSession = topList;
 	session * tempSession = topList;
@@ -75,7 +72,8 @@ void List::addSession(session * newSession)
 
 	else
 	{
-		if (strcmp(newSession->getSpeaker(), topList->getSpeaker()) < 0) {
+		if (newSession->getSpeaker() < topList->getSpeaker()) 
+		{
 			newSession->next = topList;
 			topList = newSession;
 		}
@@ -84,7 +82,7 @@ void List::addSession(session * newSession)
 		{
 			session * nextSession = topList;
 			session * prevSession = nullptr;
-			while (nextSession && strcmp(nextSession->getSpeaker(), newSession->getSpeaker()) < 0)
+			while (nextSession && nextSession->getSpeaker() < newSession->getSpeaker())
 			{
 				prevSession = nextSession;
 				nextSession = nextSession->next;
@@ -95,14 +93,14 @@ void List::addSession(session * newSession)
 	}
 }
 
-void List::findSession(char * speaker) const
+void List::findSession(std::string const speaker) const
 {
 	session * nextSession = topList;
-	while (nextSession && strcmp(nextSession->getSpeaker(), speaker) < 0)
+	while (nextSession && nextSession->getSpeaker() < speaker)
 	{
 		nextSession = nextSession->next;
 	}
-	if (nextSession && strcmp(nextSession->getSpeaker(), speaker) == 0)
+	if (nextSession && nextSession->getSpeaker() == speaker)
 	{
 		nextSession->printTitle();
 	}

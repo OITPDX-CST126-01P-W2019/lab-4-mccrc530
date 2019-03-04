@@ -30,15 +30,13 @@ int main()
 
 	paxWestList.printList();
 
-	char finding{ 'Y' };
-	char lookingFor[35]{}, lookingForPt2[35]{};
-	while (finding == 'Y' || finding == 'y')
+	std::string finding{ "Y" }, lookingFor{}, lookingForPt2{};
+	while (finding == "Y" || finding == "y")
 	{
 		std::cout << std::endl << "Which speaker would you like to find? ";
 		std::cin >> lookingFor;
 		std::cin >> lookingForPt2;
-		strcat_s(lookingFor, " ");
-		strcat_s(lookingFor, lookingForPt2);
+		lookingFor += " " + lookingForPt2;
 
 		std::cout << std::endl;
 

@@ -1,17 +1,17 @@
 #pragma once
-
+#include <string>
 struct session
 {
 public:
 	session();
-	session(char const * inputTitle, char const * inputSpeaker, int inputLength);
+	session(std::string const inputTitle, std::string const inputSpeaker, int inputLength);
 	void printSession() const;
-	char * const getSpeaker();
+	std::string const getSpeaker() const;
 	void printTitle() const;
 	session * next;
 private:
-	char title[35];
-	char speaker[35];
+	std::string title;
+	std::string speaker;
 	int length;
 };
 
@@ -22,7 +22,7 @@ public:
 	~List();
 	void printList() const;
 	void addSession(session * newSession);
-	void findSession(char * speaker) const;
+	void findSession(std::string const speaker) const;
 private:
 	session * topList;
 };
