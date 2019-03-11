@@ -47,7 +47,7 @@ List::~List()
 	{
 		nextSession->printTitle();
 		nextSession = nextSession->next;
-		tempSession->next = nullptr;
+		delete tempSession;
 		tempSession = nextSession;
 	}
 }
